@@ -1,9 +1,41 @@
 {
-  "files": [],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "types": ["node"],
+    "target": "esnext",
+    "module": "esnext",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable", "esnext"],
+    "skipLibCheck": true,
+    "baseUrl": ".",
+
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+
+    /* Paths */
+    "paths": {
+      "@/*": ["src/*"],
+      "@ui/*": ["src/shared/components/ui/*"],
+      "@components/*": ["src/shared/components/*"],
+      "@consts/*": ["src/shared/consts/*"],
+      "@pages/*": ["src/pages/*"],
+      "@hooks/*": ["src/shared/hooks/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "./.eslintrc.cjs"],
+
+  "exclude": ["node_modules"],
   "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
     {
       "path": "./tsconfig.node.json"
     }

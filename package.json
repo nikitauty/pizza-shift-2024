@@ -1,28 +1,52 @@
 {
-	"name": "pizza-shift-2024",
-	"private": true,
-	"version": "0.0.1",
-	"type": "module",
-	"scripts": {
-		"dev": "vite",
-		"build": "tsc -b && vite build",
-		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-		"preview": "vite preview"
-	},
-	"dependencies": {
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1"
-	},
-	"devDependencies": {
-		"@types/react": "^18.3.3",
-		"@types/react-dom": "^18.3.0",
-		"@typescript-eslint/eslint-plugin": "^7.13.1",
-		"@typescript-eslint/parser": "^7.13.1",
-		"@vitejs/plugin-react": "^4.3.1",
-		"eslint": "^8.57.0",
-		"eslint-plugin-react-hooks": "^4.6.2",
-		"eslint-plugin-react-refresh": "^0.4.7",
-		"typescript": "^5.2.2",
-		"vite": "^5.3.1"
-	}
+  "name": "pizza-shift-2024",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "format": "npx prettier . --write",
+    "lint:ts": "eslint \"./src/**/*.{ts,tsx}\"",
+    "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
+    "lint:css": "npx stylelint \"**/*.css\"",
+    "lint:css:fix": "npx stylelint \"**/*.css\" --fix",
+    "lint:all": "yarn lint:ts && yarn lint:css",
+    "lint:all:fix": "yarn lint:ts:fix && yarn lint:css:fix",
+    "preview": "vite preview",
+    "prepare": "husky && husky install"
+  },
+  "lint-staged": {
+    "*.css": [
+      "stylelint --fix"
+    ],
+    "*.{ts, tsx}": [
+      "prettier --write",
+      "eslint --no-error-on-unmatched-pattern --fix"
+    ]
+  },
+  "dependencies": {
+    "@types/node": "^20.14.10",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.13.1",
+    "@typescript-eslint/parser": "^7.13.1",
+    "@nikitau/eslint": "^1.0.1",
+    "@nikitau/prettier": "^1.0.3",
+    "@nikitau/stylelint": "^1.0.2",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "husky": "^8.0.0",
+    "prettier": "^3.3.2",
+    "stylelint": "^16.6.1",
+    "lint-staged": "^15.2.7",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.1"
+  }
 }
