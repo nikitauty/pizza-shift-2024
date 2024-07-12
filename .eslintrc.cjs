@@ -22,6 +22,7 @@ module.exports = {
         '@typescript-eslint/no-misused-promises': 'off',
         '@typescript-eslint/no-unsafe-member-access': 'off',
         '@typescript-eslint/no-unnecessary-type-assertion': 'off',
+        'no-param-reassign': ['error', { props: false }],
       },
     },
   ],
