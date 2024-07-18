@@ -62,18 +62,59 @@ type NameIngredient =
 type NameSize = 'SMALL' | 'MEDIUM' | 'LARGE';
 type NameDough = 'THIN' | 'THICK';
 
+interface Person {
+  firstName: string;
+  lastName: string;
+  middleName?: string;
+  phone: string;
+}
+
+interface Address {
+  street: string;
+  house: string;
+  apartment: string;
+  comment?: string;
+}
+
+interface PizzaOrder {
+  person: Person;
+  receiverAddress: Address;
+  status: 0 | 1 | 2 | 3 | 4 | 5;
+  cancellable: boolean;
+}
+
+interface DebitCard {
+  pan: string;
+  expireDate: string;
+  cvc: string;
+}
+
+interface CreatePizzaPaymentPizzaDto {
+  id: string;
+  name: string;
+  toppings: PizzaIngredient[];
+  description: string;
+  size: PizzaSize;
+  doughs: PizzaDough[];
+}
+
 interface BaseResponse {
   success: boolean;
   reason?: string;
-  message?: string;
-  error?: string;
-  statusCode?: number;
 }
 
-interface PizzaCatalogResponse extends BaseResponse {
+interface PizzasResponse extends BaseResponse {
   catalog: Pizza[];
 }
 
-interface OrdersResponse extends BaseResponse {
-  orders: string[]; // TODO: fix this
+interface PizzaPaymentResponse extends BaseResponse {
+  order: PizzaOrder;
+}
+
+interface PizzaOrderResponse extends BaseResponse {
+  order: PizzaOrder;
+}
+
+interface PizzaOrdersResponse extends BaseResponse {
+  orders: PizzaOrder[];
 }
