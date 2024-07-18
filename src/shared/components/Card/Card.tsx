@@ -9,7 +9,7 @@ export interface CardProps {
 export const Card = ({ pizza }: CardProps) => {
   return (
     <div className={styles.card}>
-      <img src={pizza.img} alt='Картинка пиццы' className={styles.image} />
+      <img src={pizza.img} alt={`Картинка пиццы ${pizza.name}`} className={styles.image} />
       <Typography tag='h3' variant='title_h3'>
         {pizza.name}
       </Typography>
