@@ -1,3 +1,7 @@
+type AxiosRequestConfig<Params = undefined> = Params extends undefined
+  ? { config?: import('axios').AxiosRequestConfig }
+  : { params: Params; config?: import('axios').AxiosRequestConfig };
+
 interface Pizza {
   id: string;
   name: string;
@@ -57,3 +61,19 @@ type NameIngredient =
 
 type NameSize = 'SMALL' | 'MEDIUM' | 'LARGE';
 type NameDough = 'THIN' | 'THICK';
+
+interface BaseResponse {
+  success: boolean;
+  reason?: string;
+  message?: string;
+  error?: string;
+  statusCode?: number;
+}
+
+interface PizzaCatalogResponse extends BaseResponse {
+  catalog: Pizza[];
+}
+
+interface OrdersResponse extends BaseResponse {
+  orders: string[]; // TODO: fix this
+}
