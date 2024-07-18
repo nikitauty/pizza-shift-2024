@@ -2,5 +2,5 @@ import { api } from '@/shared/api/instance';
 
 export type GetPizzaCatalogConfig = AxiosRequestConfig;
 
-export const getPizzaCatalog = async (requestConfig?: GetPizzaCatalogConfig) =>
-  api.get<PizzaCatalogResponse>('pizza/catalog', requestConfig?.config);
+export const getPizzaCatalog = (requestConfig?: GetPizzaCatalogConfig) =>
+  api.get<PizzasResponse>('pizza/catalog', requestConfig?.config);
