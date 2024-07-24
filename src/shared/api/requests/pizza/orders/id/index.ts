@@ -1,6 +1,8 @@
 import { api } from '@/shared/api/instance';
 
-export type PizzaOrdersIdConfig = AxiosRequestConfig; // TODO: fix types
+export type PizzaOrdersIdParams = Pick<PizzaOrder, 'id'>;
 
-export const getOrdersId = async (id: string, requestConfig?: PizzaOrdersIdConfig) =>
-  api.get<PizzaOrderResponse>(`pizza/orders/${id}`, requestConfig?.config);
+export type PizzaOrdersIdConfig = AxiosRequestConfig<PizzaOrdersIdParams>;
+
+export const getOrdersId = async (requestConfig?: PizzaOrdersIdConfig) =>
+  api.get<PizzaOrderResponse>(`pizza/orders/${requestConfig?.params.id}`, requestConfig?.config);

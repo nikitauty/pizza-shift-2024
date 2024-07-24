@@ -77,6 +77,7 @@ interface Address {
 }
 
 interface PizzaOrder {
+  id: string; // TODO: fix types
   person: Person;
   receiverAddress: Address;
   status: 0 | 1 | 2 | 3 | 4 | 5;
