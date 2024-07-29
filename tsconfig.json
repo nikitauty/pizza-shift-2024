@@ -28,11 +28,12 @@
       "@ui/*": ["src/shared/components/ui/*"],
       "@components/*": ["src/shared/components/*"],
       "@constants/*": ["src/shared/constants/*"],
+      "@api/*": ["src/shared/api/*"],
       "@pages/*": ["src/pages/*"],
       "@hooks/*": ["src/shared/hooks/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "./.eslintrc.cjs", "@types/*"],
+  "include": ["**/*.ts", "**/*.tsx", "./.eslintrc.cjs"],
 
   "exclude": ["node_modules"],
   "references": [

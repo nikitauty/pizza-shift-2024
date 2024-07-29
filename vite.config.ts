@@ -12,6 +12,7 @@ export default defineConfig({
       '@ui': path.resolve(__dirname, './src/shared/components/ui'),
       '@components': path.resolve(__dirname, './src/shared/components'),
       '@constants': path.resolve(__dirname, './src/shared/constants'),
+      '@api': path.resolve(__dirname, './src/shared/api'),
       '@pages': path.resolve(__dirname, './src/pages'),
       '@hooks': path.resolve(__dirname, './src/shared/hooks'),
     },
