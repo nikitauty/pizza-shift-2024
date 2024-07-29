@@ -2,6 +2,11 @@ type AxiosRequestConfig<Params = undefined> = Params extends undefined
   ? { config?: import('axios').AxiosRequestConfig }
   : { params: Params; config?: import('axios').AxiosRequestConfig };
 
+interface BaseResponse {
+  success: boolean;
+  reason?: string;
+}
+
 interface Pizza {
   id: string;
   name: string;
@@ -62,29 +67,33 @@ type NameIngredient =
 type NameSize = 'SMALL' | 'MEDIUM' | 'LARGE';
 type NameDough = 'THIN' | 'THICK';
 
-interface Person {
-  firstName: string;
-  lastName: string;
-  middleName?: string;
-  phone: string;
-}
-
-interface Address {
-  street: string;
-  house: string;
-  apartment: string;
-  comment?: string;
+interface PizzasResponse extends BaseResponse {
+  catalog: Pizza[];
 }
 
 interface PizzaOrder {
-  id: string; // TODO: fix types
+  _id: string; // TODO: fix types
   person: Person;
   receiverAddress: Address;
   status: 0 | 1 | 2 | 3 | 4 | 5;
   cancellable: boolean;
 }
 
-interface DebitCard {
+interface CreatePizzaPaymentAddressDto {
+  street: string;
+  house: string;
+  apartment: string;
+  comment?: string;
+}
+
+interface CreatePizzaPaymentPersonDto {
+  firstName: string;
+  lastName: string;
+  middleName?: string;
+  phone: string;
+}
+
+interface CreatePizzaPaymentDebitCardDto {
   pan: string;
   expireDate: string;
   cvc: string;
@@ -99,17 +108,35 @@ interface CreatePizzaPaymentPizzaDto {
   doughs: PizzaDough[];
 }
 
-interface BaseResponse {
-  success: boolean;
-  reason?: string;
-}
-
-interface PizzasResponse extends BaseResponse {
-  catalog: Pizza[];
+interface CreatePizzaPaymentDto {
+  receiverAddress: CreatePizzaPaymentAddressDto;
+  person: CreatePizzaPaymentPersonDto;
+  debitCard: CreatePizzaPaymentDebitCardDto;
+  pizzas: CreatePizzaPaymentPizzaDto[];
 }
 
 interface PizzaPaymentResponse extends BaseResponse {
   order: PizzaOrder;
+}
+
+interface Person {
+  firstName: string;
+  lastName: string;
+  middleName?: string;
+  phone: string;
+}
+
+interface Address {
+  street: string;
+  house: string;
+  apartment: string;
+  comment?: string;
+}
+
+interface DebitCard {
+  pan: string;
+  expireDate: string;
+  cvc: string;
 }
 
 interface PizzaOrderResponse extends BaseResponse {
@@ -118,4 +145,30 @@ interface PizzaOrderResponse extends BaseResponse {
 
 interface PizzaOrdersResponse extends BaseResponse {
   orders: PizzaOrder[];
+}
+
+interface CancelPizzaOrderDto {
+  orderId: string;
+}
+
+interface CreateOtpDto {
+  phone: string;
+}
+
+interface CreateOtpResponse extends BaseResponse {
+  retryDelay: number;
+}
+
+interface User {
+  phone: string;
+  firstName?: string;
+  middleName?: string;
+  lastName?: string;
+  email?: string;
+  city?: string;
+}
+
+interface SignInResponse extends BaseResponse {
+  user: User;
+  token: string;
 }

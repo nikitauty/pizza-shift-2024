@@ -1,6 +1,6 @@
 import { api } from '@/shared/api/instance';
 
-export type OrdersCancelConfig = AxiosRequestConfig; // TODO: fix types
+export type OrdersCancelConfig = AxiosRequestConfig<CancelPizzaOrderDto>;
 
-export const getOrdersCancel = async (requestConfig?: OrdersCancelConfig) =>
-  api.get<PizzaOrdersResponse>('pizza/orders/cancel', requestConfig?.config);
+export const getOrdersCancel = async ({ params, config }: OrdersCancelConfig) =>
+  api.put<PizzaOrdersResponse>('pizza/orders/cancel', params, config);

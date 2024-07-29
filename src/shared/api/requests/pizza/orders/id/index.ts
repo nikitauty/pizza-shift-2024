@@ -1,8 +1,9 @@
 import { api } from '@/shared/api/instance';
 
-export type PizzaOrdersIdParams = Pick<PizzaOrder, 'id'>;
+export type PizzaOrderByIdParams = Pick<PizzaOrder, '_id'>;
 
-export type PizzaOrdersIdConfig = AxiosRequestConfig<PizzaOrdersIdParams>;
+export type PizzaOrderByIdConfig = AxiosRequestConfig<PizzaOrderByIdParams>;
 
-export const getOrdersId = async (requestConfig?: PizzaOrdersIdConfig) =>
-  api.get<PizzaOrderResponse>(`pizza/orders/${requestConfig?.params.id}`, requestConfig?.config);
+export const getPizzaOrdersId = async ({ params, config }: PizzaOrderByIdConfig) =>
+  // eslint-disable-next-line no-underscore-dangle
+  api.get<PizzaOrderResponse>(`pizza/orders/${params._id}`, config);

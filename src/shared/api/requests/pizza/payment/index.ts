@@ -1,6 +1,6 @@
 import { api } from '@/shared/api/instance';
 
-export type PizzaPaymentConfig = AxiosRequestConfig;
+export type PizzaPaymentConfig = AxiosRequestConfig<CreatePizzaPaymentDto>;
 
-export const getPayment = async (requestConfig?: PizzaPaymentConfig) =>
-  api.get<PizzaPaymentResponse>('pizza/payment', requestConfig?.config);
+export const postPizzaPayment = async ({ params, config }: PizzaPaymentConfig) =>
+  api.post<PizzaPaymentResponse>('pizza/payment', params, config);
