@@ -1,4 +1,4 @@
-import { Typography } from '@components/index';
+import { Typography } from '@components/ui';
 
 import styles from './Card.module.css';
 

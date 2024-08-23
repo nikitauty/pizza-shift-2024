@@ -1,0 +1,17 @@
+.desktop_layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  position: relative;
+  min-height: 90.8vh;
+  padding: 24px 240px;
+}
+
+.main_page {
+  background-image: url('@images/main-page-bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
