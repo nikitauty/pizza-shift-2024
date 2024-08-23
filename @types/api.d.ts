@@ -2,9 +2,35 @@ type AxiosRequestConfig<Params = undefined> = Params extends undefined
   ? { config?: import('axios').AxiosRequestConfig }
   : { params: Params; config?: import('axios').AxiosRequestConfig };
 
+interface QuerySettings<Params = void> {
+  config?: RequestConfig<Params>;
+  options?: Omit<
+    import('@tanstack/react-query').UseQueryOptions<
+      Awaited<ReturnType<Params>>,
+      any,
+      Awaited<ReturnType<Params>>,
+      any
+    >,
+    'queryKey'
+  >;
+}
+
+interface MutationSettings<Params = void, Func = unknown> {
+  config?: ApiRequestConfig;
+  options?: import('@tanstack/react-query').UseMutationOptions<
+    Awaited<ReturnType<Func>>,
+    any,
+    Params,
+    any
+  >;
+}
+
 interface BaseResponse {
   success: boolean;
   reason?: string;
+  message?: string;
+  error?: string;
+  statusCode?: number;
 }
 
 interface Pizza {
@@ -160,6 +186,7 @@ interface CreateOtpResponse extends BaseResponse {
 }
 
 interface User {
+  id: string;
   phone: string;
   firstName?: string;
   middleName?: string;
@@ -171,4 +198,8 @@ interface User {
 interface SignInResponse extends BaseResponse {
   user: User;
   token: string;
+}
+
+interface SessionResponse extends BaseResponse {
+  user: User;
 }
