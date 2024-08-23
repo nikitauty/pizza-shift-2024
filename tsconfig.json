@@ -1,9 +1,44 @@
 {
-  "files": [],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "types": ["node"],
+    "target": "esnext",
+    "module": "esnext",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable", "esnext"],
+    "skipLibCheck": true,
+    "baseUrl": ".",
+
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+
+    /* Paths */
+    "paths": {
+      "@/*": ["src/*"],
+      "@icons/*": ["src/shared/assets/icons/*"],
+      "@images/*": ["src/shared/assets/images/*"],
+      "@components/*": ["src/components/*"],
+      "@constants/*": ["src/shared/constants/*"],
+      "@api/*": ["src/shared/api/*"],
+      "@pages/*": ["src/pages/*"],
+      "@hooks/*": ["src/shared/hooks/*"],
+      "@store/*": ["src/shared/store/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "**/*.tsx", "@types/*.ts", "./.eslintrc.cjs"],
+
+  "exclude": ["node_modules"],
   "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
     {
       "path": "./tsconfig.node.json"
     }
