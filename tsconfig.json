@@ -25,12 +25,14 @@
     /* Paths */
     "paths": {
       "@/*": ["src/*"],
-      "@ui/*": ["src/shared/components/ui/*"],
-      "@components/*": ["src/shared/components/*"],
+      "@icons/*": ["src/shared/assets/icons/*"],
+      "@images/*": ["src/shared/assets/images/*"],
+      "@components/*": ["src/components/*"],
       "@constants/*": ["src/shared/constants/*"],
       "@api/*": ["src/shared/api/*"],
       "@pages/*": ["src/pages/*"],
-      "@hooks/*": ["src/shared/hooks/*"]
+      "@hooks/*": ["src/shared/hooks/*"],
+      "@store/*": ["src/shared/store/*"]
     }
   },
   "include": ["src/**/*.ts", "**/*.tsx", "@types/*.ts", "./.eslintrc.cjs"],

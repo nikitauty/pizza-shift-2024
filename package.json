@@ -7,12 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "format": "npx prettier . --write",
-    "lint:ts": "eslint \"./src/**/*.{ts,tsx}\"",
-    "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
-    "lint:css": "npx stylelint \"**/*.css\"",
-    "lint:css:fix": "npx stylelint \"**/*.css\" --fix",
+    "lint:ts": "eslint \"**/*.{ts,tsx}\" --fix",
+    "lint:css": "npx stylelint \"**/*.css\" --fix",
     "lint:all": "yarn lint:ts && yarn lint:css",
-    "lint:all:fix": "yarn lint:ts:fix && yarn lint:css:fix",
     "preview": "vite preview",
     "prepare": "husky && husky install"
   },
@@ -26,11 +23,15 @@
     ]
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.52.0",
     "@types/node": "^20.14.10",
     "axios": "^1.7.2",
     "clsx": "^2.1.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.1",
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
     "@nikitau/eslint": "^1.0.1",
